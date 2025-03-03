@@ -32,11 +32,6 @@ function PokemonCard({ pokemon }) {
         backgroundColor: 'rgba(255, 255, 255, 0.9)',
         boxShadow: '0 0 20px rgba(81, 217, 255, 0.6)',
         border: '2px solid #51D9FF',
-        transition: 'all 0.3s ease',
-        '&:hover': {
-          transform: 'translateY(-5px)',
-          boxShadow: '0 0 30px rgba(81, 217, 255, 0.8)',
-        }
       }}
     >
       <Grid container spacing={2}>
@@ -54,7 +49,7 @@ function PokemonCard({ pokemon }) {
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <CardContent>
+          <Box>
             <Typography 
               variant="h4" 
               component="h2" 
@@ -146,7 +141,7 @@ function PokemonCard({ pokemon }) {
                 </Box>
               </Box>
             )}
-          </CardContent>
+          </Box>
         </Grid>
       </Grid>
     </Card>

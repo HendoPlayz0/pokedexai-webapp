@@ -29,11 +29,17 @@ function SearchBar({ setPokemon }) {
           name: ability.ability.name,
           is_hidden: ability.is_hidden
         })),
-        height: response.data.height / 10, // Convert to meters
-        weight: response.data.weight / 10, // Convert to kilograms
+        height: response.data.height / 10,
+        weight: response.data.weight / 10,
+        cry: `https://play.pokemonshowdown.com/audio/cries/${response.data.name.toLowerCase()}.mp3`,
+        games: speciesResponse.data.game_indices?.map(game => game.version.name) || []
       };
       
       setPokemon(pokemonData);
+      
+      // Play Pokemon cry
+      const audio = new Audio(pokemonData.cry);
+      audio.play().catch(e => console.log('Audio not available'));
     } catch (error) {
       alert('Bzzt! Pokémon not found in database! Please check the spelling and try again!');
     }
